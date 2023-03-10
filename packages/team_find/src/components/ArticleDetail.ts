@@ -9,13 +9,13 @@ export class ArticleDetail extends LitElement {
   render() {
     if (this.sku) {
       return html`
-          <h1 class="decide_header shared-class-name">This is a Lit component</h1>
+          <h1 class="find_header shared-class-name">This is a Lit component</h1>
           <div class="flex">
-              <div class="decide_product">
-                  <h2 class="decide_headline">Eicher Diesel 215/16 SKU: (${this.sku})</h2>
-                  <img class="decide_image" src="https://mi-fr.org/img/eicher.svg"/>
+              <div class="find_product">
+                  <h2 class="find_headline">Eicher Diesel 215/16 SKU: (${this.sku})</h2>
+                  <img class="find_image" src=${`http://localhost:3001/find/api/${this.sku}.svg`}/>
               </div>
-              <aside class="decide_info">
+              <aside class="find_info">
                   <div>
                       <select @change=${this.onSelectSku} >
                           <option value="123" ?selected=${this.sku === '123'}>Einfach</option>
@@ -37,7 +37,7 @@ export class ArticleDetail extends LitElement {
   }
 
   private onSelectSku(e: Event) {
-    window.location.href = `/decide/${(e.target as HTMLSelectElement).value}`
+    window.location.href = `/find/${(e.target as HTMLSelectElement).value}`
   }
 
   static styles = css`
@@ -60,17 +60,17 @@ export class ArticleDetail extends LitElement {
       background-color: cornflowerblue;
     }
     
-    .decide_info {
+    .find_info {
       margin: 20px;
     }
     
-    .decide_info div {
+    .find_info div {
       border: 1px dashed #666;
       padding: 8px;
       margin: 8px;
     }
 
-    .decide_layout {
+    .find_layout {
       display: grid;
       padding: 0 1rem 3rem;
       grid-gap: 2rem;
@@ -80,7 +80,7 @@ export class ArticleDetail extends LitElement {
       margin: 0 auto;
     }
 
-    .decide_header {
+    .find_header {
       font-size: 2rem;
       margin: 1rem 0 0;
       text-align: center;
@@ -89,7 +89,7 @@ export class ArticleDetail extends LitElement {
       grid-column: 1 / span 2;
     }
 
-    .decide_headline {
+    .find_headline {
       font-size: 1.5em;
       text-align: center;
       margin: 0;
@@ -99,7 +99,7 @@ export class ArticleDetail extends LitElement {
       display: flex;
     }
 
-    .decide_image {
+    .find_image {
       width: 100%;
     }
   `
