@@ -1,4 +1,5 @@
 import {useBroadcast} from "./useBroadcast";
+import "@ui5/webcomponents/dist/Button.js";
 
 import './styles.css'
 
@@ -13,9 +14,9 @@ const BuyButton = ({skuId, price}: BuyButtonProps) => {
   return (
     <div>
       <p>This is a react component</p>
-      <button onClick={() => setArticles(articles + 1)} className={'shared-class-name'}>
+      <ui5-button onClick={() => setArticles(articles + 1)} className={'shared-class-name'}>
         Buy SKU {skuId} for {price} Euros.
-      </button>
+      </ui5-button>
     </div>
   )
 }
