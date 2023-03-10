@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Micro Frontend</title>
+</head>
+<body style="border: 4px solid aqua; padding: 4px;">
+    <h1>Micro Frontends</h1>
+
+    <h2>This frame is currently served by team decide but could easily be moved to another scope</h2>
+
+    <div style="border: 4px solid firebrick; padding: 4px;">
+        <!--#include virtual="/includes/static.html" -->
+    </div>
+
+    <div style="border: 4px solid firebrick; padding: 4px; margin-top: 4px;">
+        <!--#include virtual="/buy/" -->
+    </div>
+
+    <slot/>
+</body>
+</html>

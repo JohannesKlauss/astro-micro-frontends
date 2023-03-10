@@ -1,0 +1,27 @@
+{
+  "name": "astro-micro-frontends",
+  "version": "1.0.0",
+  "description": "A micro frontend built with astro",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently -n team_buy, team_find \"npm run dev --workspace=packages/team_buy\" \"npm run dev --workspace=packages/team_find\"",
+    "build": "concurrently -n team_buy, team_find \"npm run build --workspace=packages/team_buy\" \"npm run build --workspace=packages/team_find\"",
+    "preview": "concurrently -n ngninx,team_buy, team_find \"npm run start --workspace=packages/nginx\" \"npm run preview --workspace=packages/team_buy\" \"npm run preview --workspace=packages/team_find\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohannesKlauss/astro-micro-frontends.git"
+  },
+  "author": "Johannes Klauss",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JohannesKlauss/astro-micro-frontends/issues"
+  },
+  "homepage": "https://github.com/JohannesKlauss/astro-micro-frontends#readme",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}

@@ -1,0 +1,20 @@
+---
+import MiniCart from '../components/MiniCart.tsx';
+import BuyButton from '../components/BuyButton.tsx';
+---
+
+<main>
+    <h1 class="shared-class-name">This is a root level astro component from Team Buy</h1>
+
+    <h3>This is a react component</h3>
+    <MiniCart client:load />
+
+    <h3>This is a react component</h3>
+    <BuyButton client:load sku={234} price={50} />
+</main>
+
+<style>
+ .shared-class-name {
+    color: red;
+ }
+</style>

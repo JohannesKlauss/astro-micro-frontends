@@ -1,0 +1,9 @@
+{
+  "name": "astro-micro-frontend-poc",
+  "version": "1.0.0",
+  "dependencies": {
+  },
+  "scripts": {
+    "start": "node nginx.js nginx.conf"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "team-buy",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev --port 3002",
+    "start": "astro dev --port 3002",
+    "build": "astro build --port 3002",
+    "preview": "astro preview --port 3002",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/node": "^5.1.0",
+    "@astrojs/react": "^2.1.0",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "astro": "^2.1.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

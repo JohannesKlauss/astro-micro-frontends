@@ -1,0 +1,12 @@
+---
+export interface Props {
+  url: string;
+  slot: string;
+}
+
+const {slot, url} = Astro.props;
+---
+
+<div slot={slot}>
+  <Fragment slot={slot} set:html={`<!--#include virtual="${url}" -->`}/>
+</div>
