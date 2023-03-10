@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit'
-import {customElement, property} from 'lit/decorators.js'
+import {customElement, property, state} from 'lit/decorators.js'
 
 @customElement('article-detail')
 export class ArticleDetail extends LitElement {
@@ -13,18 +13,33 @@ export class ArticleDetail extends LitElement {
           <div class="flex">
               <div class="find_product">
                   <h2 class="find_headline">Eicher Diesel 215/16 SKU: (${this.sku})</h2>
-                  <img class="find_image" src=${`http://localhost:3001/find/api/${this.sku}.svg`}/>
+                  <img class="find_image" src=${`/find/api/${this.sku}.svg`}/>
               </div>
               <aside class="find_info">
                   <div>
+                      Static updates (MPA style):
+                      <select @change=${this.onReload} >
+                          <option value="123" ?selected=${this.sku === '123'}>Einfach</option>
+                          <option value="456" ?selected=${this.sku === '456'}>Premium</option>
+                      </select>
+                  </div>
+                  
+                  <div>
+                      Hier wird der Button von Team Buy eingefügt (einmaliger Aufruf, MPA fähig):
+                      <slot name="checkout-buy"></slot>
+                  </div>
+
+                  <div>
+                      Dynamic Updates (SPA style):
                       <select @change=${this.onSelectSku} >
                           <option value="123" ?selected=${this.sku === '123'}>Einfach</option>
                           <option value="456" ?selected=${this.sku === '456'}>Premium</option>
                       </select>
                   </div>
+
                   <div>
-                      Hier wird der Button von Team Buy eingefügt:
-                      <slot name="checkout-buy"></slot>
+                      Hier wird der Button von Team Buy eingefügt (einmaliger Aufruf, dynamisch):
+                      <slot name="checkout-buy-dynamic" data-url="/buy/add-to-basket/${this.sku}"></slot>
                   </div>
               </aside>
           </div>
@@ -37,6 +52,10 @@ export class ArticleDetail extends LitElement {
   }
 
   private onSelectSku(e: Event) {
+    this.sku = (e.target as HTMLSelectElement).value;
+  }
+
+  private onReload(e: Event) {
     window.location.href = `/find/${(e.target as HTMLSelectElement).value}`
   }
 

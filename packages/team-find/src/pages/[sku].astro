@@ -1,6 +1,7 @@
 ---
 import {ArticleDetail} from '../components/ArticleDetail.ts';
 import EdgeInclude from '../components/EdgeInclude.astro';
+import DynamicInclude from '../components/DynamicInclude.astro';
 import Layout from '../layouts/Layout.astro';
 
 const {sku} = Astro.params
@@ -9,5 +10,6 @@ const {sku} = Astro.params
 <Layout>
     <ArticleDetail client:load sku={sku}>
         <EdgeInclude slot="checkout-buy" url={`/buy/add-to-basket/${sku}`}/>
+        <DynamicInclude slot="checkout-buy-dynamic" url={`/buy/add-to-basket/${sku}`}/>
     </ArticleDetail>
 </Layout>

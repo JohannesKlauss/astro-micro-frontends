@@ -1,29 +1,21 @@
-import {useLayoutEffect, useRef, useState} from "react";
+import {useLayoutEffect, useRef} from "react";
 
-export function useBroadcast<T>(name: string, initialState: T): [T, (value: T) => void] {
-  const [state, _setState] = useState(initialState)
+export function useBroadcast<T>(name: string, onEvent: (e: MessageEvent) => void): (value: T) => void {
   const channel = useRef<BroadcastChannel>()
 
   useLayoutEffect(() => {
     channel.current = new BroadcastChannel(name);
 
-    channel.current.onmessage = function (event) {
-      console.log('onmessage', event);
-
-      event.preventDefault();
-      let {data: value} = event;
-      _setState(value)
-    };
+    channel.current.onmessage = onEvent
 
     return () => {
       channel.current?.close();
     }
   }, [])
 
-  function setState(value: T) {
+  function emit(value: T) {
     channel.current?.postMessage(value);
-    _setState(value)
   }
 
-  return [state, setState];
+  return emit;
 }
