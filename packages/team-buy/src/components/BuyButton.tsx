@@ -1,5 +1,6 @@
 import {useBroadcast} from "./useBroadcast";
 import './styles.css'
+import type {MiniCartMessage} from "./types";
 
 export interface BuyButtonProps {
   skuId: string
@@ -7,12 +8,22 @@ export interface BuyButtonProps {
 }
 
 const BuyButton = ({skuId, price}: BuyButtonProps) => {
-  const [articles, setArticles] = useBroadcast('articles-in-mini-cart', 0)
+  const emit = useBroadcast<MiniCartMessage>('mini-cart', () => null)
+
+  const onClick = () => {
+    console.log('BuyButton emitted message', {type: 'ADD_TO_CART', skuId, price});
+
+    emit({
+      type: 'ADD_TO_CART',
+      skuId,
+      price,
+    })
+  }
 
   return (
     <div>
       <p>This is a react component</p>
-      <button onClick={() => setArticles(articles + 1)} className={'shared-class-name'}>
+      <button onClick={onClick} className={'shared-class-name'}>
         Buy SKU {skuId} for {price} Euros.
       </button>
     </div>
