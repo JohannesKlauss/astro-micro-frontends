@@ -24,7 +24,7 @@ const BuyButton = ({skuId, price}: BuyButtonProps) => {
     <div>
       <p>This is a react component</p>
       <button onClick={onClick} className={'shared-class-name'}>
-        Buy SKU {skuId} for {price} Euros.
+        Buy SKU {skuId} for {price}€.
       </button>
     </div>
   )

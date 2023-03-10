@@ -7,8 +7,7 @@ export interface Props {
 const {slot, url} = Astro.props;
 ---
 
-<astro-slot-observer data-url={url} slot={slot} set:html={`<!--#include virtual="${url}" -->`}>
-</astro-slot-observer>
+<astro-slot-observer data-url={url} slot={slot} set:html={`<!--#include virtual="${url}" -->`}></astro-slot-observer>
 
 <script>
   import AstroSlotObserver from './AstroSlotObserver.ts';
