@@ -4,9 +4,9 @@
   "description": "A micro frontend built with astro",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently --names \"team_buy ,team_find\" \"npm run dev --workspace=packages/team_buy\" \"npm run dev --workspace=packages/team_find\"",
-    "build": "concurrently --names \"team_buy ,team_find\" \"npm run build --workspace=packages/team_buy\" \"npm run build --workspace=packages/team_find\"",
-    "preview": "concurrently --names \"ngninx   ,team_buy ,team_find\" \"npm run start --workspace=packages/nginx\" \"npm run preview --workspace=packages/team_buy\" \"npm run preview --workspace=packages/team_find\""
+    "dev": "concurrently --names \"team-buy ,team-find\" \"npm run dev --workspace=packages/team-buy\" \"npm run dev --workspace=packages/team-find\"",
+    "build": "concurrently --names \"team-buy ,team-find\" \"npm run build --workspace=packages/team-buy\" \"npm run build --workspace=packages/team-find\"",
+    "preview": "concurrently --names \"ngninx   ,team-buy ,team-find\" \"npm run start --workspace=packages/nginx\" \"npm run preview --workspace=packages/team-buy\" \"npm run preview --workspace=packages/team-find\""
   },
   "repository": {
     "type": "git",
