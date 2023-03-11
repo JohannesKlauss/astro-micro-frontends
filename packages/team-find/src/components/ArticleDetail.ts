@@ -10,7 +10,7 @@ export class ArticleDetail extends LitElement {
     if (this.sku) {
       return html`
           <div class="article_detail">
-              <h1 class="find_header shared-class-name">This is a Lit component</h1>
+              <h1 class="find_header shared-class-name">This is a Lit component from Team Find</h1>
               <div class="flex">
                   <div class="find_product">
                       <h2 class="find_headline">Eicher Diesel 215/16 SKU: (${this.sku})</h2>

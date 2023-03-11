@@ -24,8 +24,9 @@ npm run preview
 ```
 
 Then open browser on http://localhost:3000
+
 Team Find runs on https://localhost:3001 and Team Buy on https://localhost:3002.
 
-You should see something like this
+You should see something like this:
 
 ![astro-micro-frontends](https://github.com/JohannesKlauss/astro-micro-frontends/blob/main/screenshot.png?raw=true)

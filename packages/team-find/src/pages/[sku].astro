@@ -8,6 +8,7 @@ const {sku} = Astro.params
 ---
 
 <Layout>
+    <h2>Team Find</h2>
     <ArticleDetail client:load sku={sku}>
         <EdgeInclude slot="checkout-buy" url={`/buy/add-to-basket/${sku}`}/>
         <DynamicInclude slot="checkout-buy-dynamic" url={`/buy/add-to-basket/${sku}`}/>
