@@ -9,44 +9,47 @@ export class ArticleDetail extends LitElement {
   render() {
     if (this.sku) {
       return html`
-          <h1 class="find_header shared-class-name">This is a Lit component</h1>
-          <div class="flex">
-              <div class="find_product">
-                  <h2 class="find_headline">Eicher Diesel 215/16 SKU: (${this.sku})</h2>
-                  <img class="find_image" src=${`/find/api/${this.sku}.svg`}/>
+          <div class="article_detail">
+              <h1 class="find_header shared-class-name">This is a Lit component</h1>
+              <div class="flex">
+                  <div class="find_product">
+                      <h2 class="find_headline">Eicher Diesel 215/16 SKU: (${this.sku})</h2>
+                      <img class="find_image" src=${`/find/api/${this.sku}.svg`}/>
+                  </div>
+                  <aside class="find_info">
+                      <div>
+                          Static updates (MPA style):
+                          <select @change=${this.onReload}>
+                              <option value="123" ?selected=${this.sku === '123'}>Einfach</option>
+                              <option value="456" ?selected=${this.sku === '456'}>Premium</option>
+                          </select>
+                      </div>
+
+                      <div>
+                          Hier wird der Button von Team Buy eingefügt (einmaliger Aufruf, MPA fähig):
+                          <slot name="checkout-buy"></slot>
+                      </div>
+
+                      <div>
+                          Dynamic Updates (SPA style):
+                          <select @change=${this.onSelectSku}>
+                              <option value="123" ?selected=${this.sku === '123'}>Einfach</option>
+                              <option value="456" ?selected=${this.sku === '456'}>Premium</option>
+                          </select>
+                      </div>
+
+                      <div>
+                          Hier wird der React Buy Button von Team Buy eingefügt (gekapselt, refetch bei Änderung der
+                          URL):
+                          <slot name="checkout-buy-dynamic" data-url="/buy/add-to-basket/${this.sku}"></slot>
+                      </div>
+
+                      <div>
+                          Hier wird der Lit Buy Button von Team Buy eingefügt (gekapselt, refetch bei Änderung der URL):
+                          <slot name="checkout-buy-v2-dynamic" data-url="/buy/add-to-basket/v2/${this.sku}"></slot>
+                      </div>
+                  </aside>
               </div>
-              <aside class="find_info">
-                  <div>
-                      Static updates (MPA style):
-                      <select @change=${this.onReload} >
-                          <option value="123" ?selected=${this.sku === '123'}>Einfach</option>
-                          <option value="456" ?selected=${this.sku === '456'}>Premium</option>
-                      </select>
-                  </div>
-                  
-                  <div>
-                      Hier wird der Button von Team Buy eingefügt (einmaliger Aufruf, MPA fähig):
-                      <slot name="checkout-buy"></slot>
-                  </div>
-
-                  <div>
-                      Dynamic Updates (SPA style):
-                      <select @change=${this.onSelectSku} >
-                          <option value="123" ?selected=${this.sku === '123'}>Einfach</option>
-                          <option value="456" ?selected=${this.sku === '456'}>Premium</option>
-                      </select>
-                  </div>
-
-                  <div>
-                      Hier wird der React Buy Button von Team Buy eingefügt (gekapselt, refetch bei Änderung der URL):
-                      <slot name="checkout-buy-dynamic" data-url="/buy/add-to-basket/${this.sku}"></slot>
-                  </div>
-
-                  <div>
-                      Hier wird der Lit Buy Button von Team Buy eingefügt (gekapselt, refetch bei Änderung der URL):
-                      <slot name="checkout-buy-v2-dynamic" data-url="/buy/add-to-basket/v2/${this.sku}"></slot>
-                  </div>
-              </aside>
           </div>
       `
     }
@@ -125,6 +128,12 @@ export class ArticleDetail extends LitElement {
 
     .find_image {
       width: 100%;
+    }
+    
+    .article_detail {
+      margin: 4px;
+      padding: 4px;
+      border: 4px solid darkkhaki;
     }
   `
 }

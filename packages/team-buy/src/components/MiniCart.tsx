@@ -1,11 +1,12 @@
 import {useBroadcast} from "./useBroadcast";
-import {useState} from "react";
+import {ReactNode, useState} from "react";
 import type {MiniCartMessage} from "./types";
 
 export interface MiniCartProps {
+  disclaimer: ReactNode
 }
 
-const MiniCart = ({}: MiniCartProps) => {
+const MiniCart = ({disclaimer}: MiniCartProps) => {
   const [cart, setCart] = useState({
     articles: 0,
     price: 0,
@@ -26,7 +27,11 @@ const MiniCart = ({}: MiniCartProps) => {
 
   return (
     <div className={'shared-class-name'}>
-      Artikel im Warenkorb: {cart.articles} für {cart.price}€
+      <p>
+        Artikel im Warenkorb: {cart.articles} für {cart.price}€
+      </p>
+
+      {disclaimer}
     </div>
   )
 }

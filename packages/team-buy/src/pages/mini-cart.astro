@@ -1,5 +1,8 @@
 ---
 import MiniCart from '../components/MiniCart.tsx';
+import {EdgeInclude} from 'astro-include/components';
 ---
 
-<MiniCart client:load />
+<MiniCart client:load>
+  <EdgeInclude slot="disclaimer" url="/find/disclaimer" />
+</MiniCart>
