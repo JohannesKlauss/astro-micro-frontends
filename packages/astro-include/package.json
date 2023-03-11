@@ -1,0 +1,13 @@
+{
+  "name": "astro-include",
+  "version": "1.0.5",
+  "exports": {
+    "./components": "./index.mjs"
+  },
+  "files": [
+    "components"
+  ],
+  "peerDependencies": {
+    "astro": "^2.1.2"
+  }
+}

@@ -15,6 +15,7 @@
     "@web-types/lit": "^2.0.0-3",
     "@webcomponents/template-shadowroot": "^0.1.0",
     "astro": "^2.1.2",
+    "astro-include": "^1.0.4",
     "lit": "^2.6.1"
   }
 }

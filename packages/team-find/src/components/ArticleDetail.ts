@@ -38,8 +38,13 @@ export class ArticleDetail extends LitElement {
                   </div>
 
                   <div>
-                      Hier wird der Button von Team Buy eingefügt (einmaliger Aufruf, dynamisch):
+                      Hier wird der React Buy Button von Team Buy eingefügt (gekapselt, refetch bei Änderung der URL):
                       <slot name="checkout-buy-dynamic" data-url="/buy/add-to-basket/${this.sku}"></slot>
+                  </div>
+
+                  <div>
+                      Hier wird der Lit Buy Button von Team Buy eingefügt (gekapselt, refetch bei Änderung der URL):
+                      <slot name="checkout-buy-v2-dynamic" data-url="/buy/add-to-basket/v2/${this.sku}"></slot>
                   </div>
               </aside>
           </div>
