@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "concurrently --names \"team-buy ,team-find\" \"npm run dev --workspace=packages/team-buy\" \"npm run dev --workspace=packages/team-find\"",
-    "build": "concurrently --names \"team-buy ,team-find\" \"npm run build --workspace=packages/team-buy\" \"npm run build --workspace=packages/team-find\"",
+    "build": "npm run build --workspace=packages/ui-pattern-lib && concurrently --names \"team-buy ,team-find\" \"npm run build --workspace=packages/team-buy\" \"npm run build --workspace=packages/team-find\"",
     "preview": "concurrently --names \"ngninx   ,team-buy ,team-find\" \"npm run start --workspace=packages/nginx\" \"npm run preview --workspace=packages/team-buy\" \"npm run preview --workspace=packages/team-find\""
   },
   "repository": {

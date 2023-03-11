@@ -1,0 +1,1 @@
+{"version":3,"file":"ui-button.d.ts","sourceRoot":"","sources":["src/ui-button.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,UAAU,EAAY,MAAM,KAAK,CAAC;AAG1C,qBACa,QAAS,SAAQ,UAAU;IAC7B,MAAM;IAUf,OAAgB,MAAM,0BAoCpB;CACH;AAED,OAAO,CAAC,MAAM,CAAC;IACb,UAAU,qBAAqB;QAC7B,WAAW,EAAE,QAAQ,CAAC;KACvB;CACF"}

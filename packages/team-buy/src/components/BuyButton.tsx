@@ -1,6 +1,7 @@
 import {useBroadcast} from "./useBroadcast";
 import './styles.css'
 import type {MiniCartMessage} from "./types";
+import "ui-pattern-lib"
 
 export interface BuyButtonProps {
   skuId: string
@@ -22,10 +23,10 @@ const BuyButton = ({skuId, price}: BuyButtonProps) => {
 
   return (
     <div>
-      <p>This is a react component</p>
-      <button onClick={onClick} className={'shared-class-name'}>
+      <p>This is a react component including a button from the pattern lib</p>
+      <ui-button onClick={onClick}>
         Buy SKU {skuId} for {price}€.
-      </button>
+      </ui-button>
     </div>
   )
 }
