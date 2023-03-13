@@ -27,10 +27,12 @@ const MiniCart = ({disclaimer}: MiniCartProps) => {
 
   return (
     <div className={'shared-class-name'}>
+      <h4>Team Buy</h4>
       <p>
         Artikel im Warenkorb: {cart.articles} für {cart.price}€
       </p>
 
+      Inject something from Team find:
       {disclaimer}
     </div>
   )
